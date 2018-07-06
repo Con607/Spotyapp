@@ -4,8 +4,9 @@
   </div>
 </div>
 
+<app-loading class="animated fadeIn m-5" *ngIf="loading"></app-loading>
 
-<app-tarjetas [items]="artistas" ></app-tarjetas>
+<app-tarjetas [items]="artistas" class="animated fadeIn"></app-tarjetas>
 
 <!-- <div class="card-columns m-5">
 
