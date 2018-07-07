@@ -10,6 +10,8 @@ export class SearchComponent implements OnInit {
 
   artistas:any[] = [];
   loading:boolean;
+  error:boolean;
+  errorMessage:string;
 
   constructor( private spotify:SpotifyService ) { }
 
@@ -23,7 +25,13 @@ export class SearchComponent implements OnInit {
                   .subscribe( (data:any) => {
                     console.log(data);
                     this.artistas = data;
-                  })
+                  }, ( errorService ) => {
+                    this.loading = false;
+                    this.error = true;
+                    this.errorMessage = errorService.error.error.message;
+                    console.log(errorService);
+                    console.log(errorService.error.error.message);
+                  });
     this.loading = false;
   }
 
