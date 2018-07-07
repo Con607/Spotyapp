@@ -33,7 +33,17 @@ export class HomeComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
+  }
+
+  refreshToken(){
+    this.spotify.refreshToken()
+    .subscribe( res => {
+      console.log(res);
+    }), err => {
+      console.log(err);
+    };
   }
 
 }
